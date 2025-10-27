@@ -35,7 +35,9 @@
     "ssr:build": "bun run build && echo '✅ SSR build complete - components ready for server-side rendering'",
     "ssr:serve": "bun run ssr:build && bun run ssr-server-bun.ts",
     "ssr:dev": "bun run build && bun --watch run ssr-server-bun.ts",
-    "ssr:demo": "open ssr-demo.html"
+    "ssr:demo": "open ssr-demo.html",
+    "storybook": "storybook dev -p 6006",
+    "build-storybook": "storybook build"
   },
   "keywords": [
     "web-components",
@@ -47,7 +49,9 @@
   "license": "BSD-3-Clause",
   "dependencies": {
     "@lit-labs/ssr": "^3.3.1",
-    "lit": "^3.3.1"
+    "@storybook/web-components-vite": "^9.1.15",
+    "lit": "^3.3.1",
+    "storybook": "^9.1.15"
   },
   "devDependencies": {
     "@11ty/eleventy": "^3.1.2",
