@@ -1,0 +1,1 @@
+{"version":3,"file":"client-hydrate.d.ts","sourceRoot":"","sources":["src/client-hydrate.ts"],"names":[],"mappings":"AAAA;;;;;GAKG;AAGH,OAAO,qDAAqD,CAAC;AAG7D,OAAO,sBAAsB,CAAC;AAI9B,OAAO,CAAC,MAAM,CAAC;IACb,SAAS,+BAA+B,IAAI,OAAO,CAAC;IACpD,SAAS,kBAAkB,CAAC,IAAI,EAAE,OAAO,GAAG,IAAI,CAAC;CAClD;AAED;;GAEG;AACH,wBAAgB,mBAAmB,SAelC"}

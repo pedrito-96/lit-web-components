@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SSR Demo - Simple Greeting Component</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 20px;
+      background-color: #f5f5f5;
+    }
+    .container {
+      max-width: 800px;
+      margin: 0 auto;
+      background: white;
+      padding: 20px;
+      border-radius: 8px;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    }
+    h1 {
+      color: #333;
+      margin-bottom: 20px;
+    }
+    .demo-section {
+      background: #e8f5e8;
+      padding: 15px;
+      border-radius: 4px;
+      margin-bottom: 20px;
+      border-left: 4px solid #4caf50;
+    }
+    .component-container {
+      margin: 20px 0;
+      padding: 15px;
+      border: 1px solid #ddd;
+      border-radius: 8px;
+    }
+    .instructions {
+      background: #fff3cd;
+      padding: 15px;
+      border-radius: 4px;
+      border-left: 4px solid #ffc107;
+      margin-bottom: 20px;
+    }
+    .code-block {
+      background: #f4f4f4;
+      padding: 15px;
+      border-radius: 4px;
+      font-family: monospace;
+      margin: 10px 0;
+      overflow-x: auto;
+    }
+    .server-features {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 15px;
+      margin: 20px 0;
+    }
+    .feature {
+      background: #f8f9fa;
+      padding: 15px;
+      border-radius: 8px;
+      border-left: 4px solid #007acc;
+    }
+    .feature h3 {
+      margin-top: 0;
+      color: #007acc;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>🥯 SSR Demo - Simple Greeting Component with Bun</h1>
+    
+    <div class="demo-section">
+      <strong>📋 Setup Complete!</strong>
+      <p>Your Lit component is now ready for server-side rendering (SSR) using Bun for ultra-fast performance. This demo shows you how to use the SSR implementation.</p>
+    </div>
+
+    <div class="instructions">
+      <h2>🛠️ How to Run SSR</h2>
+      <p>Follow these steps to see your component rendered server-side:</p>
+      
+      <h3>1. Build your components:</h3>
+      <div class="code-block">bun run build</div>
+      
+      <h3>2. Start the SSR server:</h3>
+      <div class="code-block">bun run ssr:serve</div>
+      
+      <h3>3. Open your browser:</h3>
+      <div class="code-block">http://localhost:3000</div>
+      
+      <h3>4. Try with different names:</h3>
+      <div class="code-block">http://localhost:3000/?name=Alice</div>
+    </div>
+
+    <div class="component-container">
+      <h2>📦 What SSR Provides</h2>
+      
+      <div class="server-features">
+        <div class="feature">
+          <h3>🥯 Bun Performance</h3>
+          <p>Powered by Bun for ultra-fast TypeScript execution, built-in bundling, and optimized HTTP server.</p>
+        </div>
+        
+        <div class="feature">
+          <h3>⚡ Faster Initial Load</h3>
+          <p>Components render immediately without waiting for JavaScript to load and execute.</p>
+        </div>
+        
+        <div class="feature">
+          <h3>🤖 SEO Friendly</h3>
+          <p>Search engines and web crawlers can read your component content directly from the HTML.</p>
+        </div>
+        
+        <div class="feature">
+          <h3>💪 Progressive Enhancement</h3>
+          <p>Your page works even if JavaScript fails to load or is disabled.</p>
+        </div>
+        
+        <div class="feature">
+          <h3>🔄 Hydration Support</h3>
+          <p>Components become interactive after JavaScript loads, maintaining their server-rendered state.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="component-container">
+      <h2>📁 Files Created for SSR</h2>
+      <ul>
+        <li><code>ssr-server-bun.ts</code> - Bun-optimized SSR server with built-in TypeScript support</li>
+        <li><code>src/ssr-server.ts</code> - Node.js compatible SSR server (fallback)</li>
+        <li><code>src/client-hydrate.ts</code> - Client-side hydration utilities</li>
+        <li><code>package.json</code> - Updated with Bun SSR scripts and types</li>
+        <li><code>tsconfig.json</code> - Updated to include Node.js and Bun types</li>
+      </ul>
+    </div>
+
+    <div class="component-container">
+      <h2>🔧 Bun Server Features</h2>
+      <p>The Bun SSR server includes:</p>
+      <ul>
+        <li>✅ Native TypeScript support (no build step needed)</li>
+        <li>✅ Ultra-fast startup and response times</li>
+        <li>✅ Server-side rendering of your <code>simple-greeting</code> component</li>
+        <li>✅ Built-in HTTP server with modern fetch API</li>
+        <li>✅ Declarative Shadow DOM support</li>
+        <li>✅ Client-side hydration with polyfills</li>
+        <li>✅ Query parameter support (<code>?name=YourName</code>)</li>
+        <li>✅ Efficient file serving with Bun.file()</li>
+        <li>✅ Health check endpoint (<code>/health</code>)</li>
+        <li>✅ Error handling and 404 pages</li>
+        <li>✅ Hot reload support with <code>--watch</code> flag</li>
+      </ul>
+    </div>
+
+    <div class="component-container">
+      <h2>🧪 Testing SSR</h2>
+      <p>To verify SSR is working:</p>
+      <ol>
+        <li><strong>Disable JavaScript</strong> in your browser dev tools</li>
+        <li><strong>Reload the page</strong> at <code>http://localhost:3000</code></li>
+        <li><strong>You should still see</strong> the styled component content</li>
+        <li><strong>View source</strong> to see the rendered HTML includes your component's shadow DOM</li>
+      </ol>
+    </div>
+
+    <div class="component-container">
+      <h2>🚀 Next Steps</h2>
+      <p>Now that SSR is set up, you can:</p>
+      <ul>
+        <li>Deploy your SSR server to production</li>
+        <li>Add more complex components to the SSR pipeline</li>
+        <li>Implement data fetching and caching</li>
+        <li>Add CSS optimization and critical CSS inlining</li>
+        <li>Set up a reverse proxy with caching (nginx, Cloudflare, etc.)</li>
+        <li>Integrate with frameworks like Express, Koa, or Fastify</li>
+      </ul>
+    </div>
+
+    <div class="demo-section">
+      <strong>💡 Pro Tip:</strong>
+      <p>Check the browser's Network tab to see how the HTML is delivered instantly, while JavaScript loads in the background for interactivity!</p>
+    </div>
+  </div>
+</body>
+</html>

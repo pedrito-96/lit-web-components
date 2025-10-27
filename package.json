@@ -7,14 +7,15 @@
   "module": "my-element.js",
   "type": "module",
   "scripts": {
-    "build": "tsc",
+    "build": "bun build:tsc",
+    "build:tsc": "tsc",
     "build:watch": "tsc --watch",
     "clean": "rimraf my-element.{d.ts,d.ts.map,js,js.map} test/my-element.{d.ts,d.ts.map,js,js.map} test/my-element_test.{d.ts,d.ts.map,js,js.map}",
-    "lint": "npm run lint:lit-analyzer && npm run lint:eslint",
+    "lint": "bun run lint:lit-analyzer && bun run lint:eslint",
     "lint:eslint": "eslint 'src/**/*.ts'",
     "lint:lit-analyzer": "lit-analyzer",
     "format": "prettier \"**/*.{cjs,html,js,json,md,ts}\" --ignore-path ./.eslintignore --write",
-    "docs": "npm run docs:clean && npm run build && npm run analyze && npm run docs:build && npm run docs:assets && npm run docs:gen",
+    "docs": "bun run docs:clean && bun run build && bun run analyze && bun run docs:build && bun run docs:assets && bun run docs:gen",
     "docs:clean": "rimraf docs",
     "docs:gen": "eleventy --config=.eleventy.cjs",
     "docs:gen:watch": "eleventy --config=.eleventy.cjs --watch",
@@ -24,13 +25,17 @@
     "analyze": "cem analyze --litelement --globs \"src/**/*.ts\"",
     "analyze:watch": "cem analyze --litelement --globs \"src/**/*.ts\" --watch",
     "serve": "wds --watch",
-    "serve:prod": "MODE=prod npm run serve",
-    "test": "npm run test:dev && npm run test:prod",
+    "serve:prod": "MODE=prod bun run serve",
+    "test": "bun run test:dev && bun run test:prod",
     "test:dev": "wtr",
     "test:watch": "wtr --watch",
     "test:prod": "MODE=prod wtr",
     "test:prod:watch": "MODE=prod wtr --watch",
-    "checksize": "rollup -c ; cat my-element.bundled.js | gzip -9 | wc -c ; rm my-element.bundled.js"
+    "checksize": "rollup -c ; cat my-element.bundled.js | gzip -9 | wc -c ; rm my-element.bundled.js",
+    "ssr:build": "bun run build && echo '✅ SSR build complete - components ready for server-side rendering'",
+    "ssr:serve": "bun run ssr:build && bun run ssr-server-bun.ts",
+    "ssr:dev": "bun run build && bun --watch run ssr-server-bun.ts",
+    "ssr:demo": "open ssr-demo.html"
   },
   "keywords": [
     "web-components",
@@ -41,6 +46,7 @@
   "author": "Google LLC",
   "license": "BSD-3-Clause",
   "dependencies": {
+    "@lit-labs/ssr": "^3.3.1",
     "lit": "^3.3.1"
   },
   "devDependencies": {
@@ -51,6 +57,8 @@
     "@rollup/plugin-node-resolve": "^16.0.3",
     "@rollup/plugin-replace": "^6.0.2",
     "@rollup/plugin-terser": "^0.4.4",
+    "@types/bun": "latest",
+    "@types/node": "^20.0.0",
     "@typescript-eslint/eslint-plugin": "^8.46.2",
     "@typescript-eslint/parser": "^8.46.2",
     "@web/dev-server": "^0.4.6",
